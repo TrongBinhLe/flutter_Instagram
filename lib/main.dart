@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:instagram/screens/login_screen.dart';
 import 'firebase_options.dart';
 import 'package:instagram/responsive/mobile_screen_layout.dart';
 import 'package:instagram/responsive/responsive_layout.dart';
@@ -7,6 +8,7 @@ import 'package:instagram/responsive/web_screen_layout.dart';
 import 'package:instagram/utils/colors.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -28,8 +30,9 @@ class MyApp extends StatelessWidget {
         // ),
         theme: ThemeData.dark()
             .copyWith(scaffoldBackgroundColor: mobileBackgroundColor),
-        home: const ResponsiveLayout(
-            mobileScreenLayout: MobileScreenLayout(),
-            webScreenLayout: WebScreenLayout()));
+        // home: const ResponsiveLayout(
+        //     mobileScreenLayout: MobileScreenLayout(),
+        //     webScreenLayout: WebScreenLayout()));
+        home: const LoginScreen());
   }
 }
